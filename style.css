@@ -1,0 +1,19 @@
+* {
+  background-color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#highscore {
+  float: left;
+  padding-left: 30px;
+}
+
+#timer {
+  float: right;
+  padding-right: 30px;
+}
+
+h1 {
+  display: relative;
+  text-align: center;
+}
