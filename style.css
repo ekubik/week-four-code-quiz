@@ -40,8 +40,32 @@ button:hover {
   cursor: pointer;
 }
 
+#quiz-questions-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.answer-btn {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  font-size: 16px;
+  margin: 10px 5px;
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 5px;
+}
+
+.answer-btn:hover{
+  transform: none;
+  background-color: #8b7bb0;
+}
+
 #game-over {
   display: none;
 }
-
 

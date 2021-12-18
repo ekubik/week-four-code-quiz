@@ -17,7 +17,7 @@ var questionsContainer = document.getElementById("quiz-questions-container");
 var questionElement = document.getElementById("question-text");
 
 //returnStart.onclick = function () {
-  //window.location.href = "./index.html";
+//window.location.href = "./index.html";
 //};
 //
 function startQuiz() {
@@ -46,27 +46,41 @@ function startQuiz() {
   }, 1000);
 }
 
-
-
 function displayQuestions() {
+  answerChoices.innerHTML = "";
   var yourQuestion = codeQuizQuestions[qIndex];
   var questionsText = document.getElementById("question-text");
   questionsText.textContent = yourQuestion.question;
 
   for (var i = 0; i < codeQuizQuestions[qIndex].options.length; i++) {
-  var choiceButton = document.createElement("button");
-  choiceButton.textContent = codeQuizQuestions[qIndex].options[i];
-  answerChoices.append(choiceButton);
-   }
-  // }
+    var choiceButton = document.createElement("button");
+    choiceButton.setAttribute("class", "answer-btn");
+    choiceButton.textContent = codeQuizQuestions[qIndex].options[i];
+    answerChoices.append(choiceButton);
+
+    choiceButton.addEventListener("click", function (event) {
+      if (event.target.textContent === codeQuizQuestions[qIndex].answer) {
+        console.log("correct");
+        correctAnswerChosen.style.display = "block";
+        wrongAnswerChosen.style.display = "none";
+      } else {
+        console.log("wrong");
+        wrongAnswerChosen.style.display = "block";
+        correctAnswerChosen.style.display = "none";
+        timeLeft = timeLeft - 10;
+      }
+      qIndex++;
+      displayQuestions();
+    });
+  }
 }
 
 //function displayQuestions() {
- // showQuestion(codeQuizQuestions[questionIndex]);
+// showQuestion(codeQuizQuestions[questionIndex]);
 //}
 
 //function showQuestion() {
-  //questionElement.innerText = codeQuizQuestions[questionIndex].question;
+//questionElement.innerText = codeQuizQuestions[questionIndex].question;
 //}
 
 //var yourQuestion = codeQuizQuestions[questionIndex];
