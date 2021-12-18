@@ -9,7 +9,7 @@ var options;
 var wrongAnswerChosen = document.getElementById("incorrect-answer");
 var correctAnswerChosen = document.getElementById("correct-answer");
 var hideElement = document.querySelectorAll(".hide");
-var returnStart = document.getElementById("backToStart");
+
 var clearScore = document.getElementById("clear-score");
 var quizBody = document.getElementById("quiz-body");
 var endScreen = document.getElementById("game-over");
@@ -22,9 +22,7 @@ var highScoresList = document.getElementById("recordHighScore");
 var scoresList = document.getElementById("high-scores-list");
 
 
-returnStart.addEventListener("click", function () {
-  window.location.href = "./index.html";
-});
+
 
 function startQuiz() {
   // hide quiz intro and start button //
@@ -81,6 +79,7 @@ function displayQuestions() {
         quizBody.style.display = "none";
         clearInterval(countdown);
         displayScore.textContent = score;
+        
       } else {
         displayQuestions();
       }
@@ -89,6 +88,8 @@ function displayQuestions() {
 }
 
 submitInitialsBtn.addEventListener("click", function () {
+  event.preventDefault();
+  window.location.href = "./highscorespg.html";
   userInitials = highScore.value;
   console.log(userInitials);
   localStorage.setItem("initials", userInitials);
@@ -97,11 +98,12 @@ submitInitialsBtn.addEventListener("click", function () {
   //var listItem = document.createElement("p");
   //listItem.textContent = localStorage.getItem("initials") + ":" + " " + localStorage.getItem("userScore");
   //scoresList.appendChild(listItem);
-
-
 });
 
-function recordHighScores() {}
+//var x = {
+  //  name= userInitials,
+    //userScore = score}
+
 
 //submitInitialsBtn.addEventListener("click", function () {
 // window.location.href = "./highscorespg.html";
