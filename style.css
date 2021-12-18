@@ -1,6 +1,11 @@
 * {
   background-color: #ffffff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+main {
+  margin: 30px 400px;
 }
 
 #highscore {
@@ -16,4 +21,26 @@
 h1 {
   display: relative;
   text-align: center;
+  padding-top: 40px;
+  color: blueviolet;
 }
+
+.answercheck {
+  display: none;
+}
+
+button {
+  background-color: blueviolet;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#game-over{
+  display: none;
+}
+
+#quiz
