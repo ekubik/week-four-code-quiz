@@ -3,31 +3,32 @@ var countdown;
 var score = 0;
 var startButton = document.querySelector("#quiz-start-btn");
 var qIndex = 0;
-var answer = codeQuizQuestions.answer;
+var lastQuestionIndex = 5;
 var answerChoices = document.getElementById("multiple-choice");
 var options;
 var wrongAnswerChosen = document.getElementById("incorrect-answer");
 var correctAnswerChosen = document.getElementById("correct-answer");
 var hideElement = document.querySelectorAll(".hide");
-//var returnStart = document.getElementById("backToStart");
+var returnStart = document.getElementById("backToStart");
 var clearScore = document.getElementById("clear-score");
 var quizBody = document.getElementById("quiz-body");
 var endScreen = document.getElementById("game-over");
 var questionsContainer = document.getElementById("quiz-questions-container");
 var questionElement = document.getElementById("question-text");
+var displayScore = document.getElementById("user-score");
+var highScore = document.getElementById("high-scorers");
+var submitInitialsBtn = document.getElementById("submit-score");
 
-//returnStart.onclick = function () {
-//window.location.href = "./index.html";
-//};
-//
+returnStart.addEventListener("click", function () {
+  window.location.href = "./index.html";
+});
+
 function startQuiz() {
   // hide quiz intro and start button //
   for (var i = 0; i < hideElement.length; i++) {
     hideElement[i].style.display = "none";
   }
   //display first question//
-
-  //questionsContainer.style.display = "block";
   displayQuestions();
 
   //function starts timer, replaces inner text of span with time remaining//
@@ -63,6 +64,7 @@ function displayQuestions() {
         console.log("correct");
         correctAnswerChosen.style.display = "block";
         wrongAnswerChosen.style.display = "none";
+        score = score + 20;
       } else {
         console.log("wrong");
         wrongAnswerChosen.style.display = "block";
@@ -70,10 +72,26 @@ function displayQuestions() {
         timeLeft = timeLeft - 10;
       }
       qIndex++;
-      displayQuestions();
+
+      if (qIndex > lastQuestionIndex) {
+        endScreen.style.display = "block";
+        quizBody.style.display = "none";
+        clearInterval(countdown);
+        displayScore.textContent = score;
+      } else {
+        displayQuestions();
+      }
     });
   }
 }
+
+var userInitials = highScore.value;
+
+submitInitialsBtn.addEventListener("click", function () {
+  window.location.href = "./highscores.pg.html";
+  console.log(userInitials);
+});
+
 
 //function displayQuestions() {
 // showQuestion(codeQuizQuestions[questionIndex]);
