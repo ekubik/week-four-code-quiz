@@ -18,6 +18,9 @@ var questionElement = document.getElementById("question-text");
 var displayScore = document.getElementById("user-score");
 var highScore = document.getElementById("high-scorers");
 var submitInitialsBtn = document.getElementById("submit-score");
+var highScoresList = document.getElementById("recordHighScore");
+var scoresList = document.getElementById("high-scores-list");
+
 
 returnStart.addEventListener("click", function () {
   window.location.href = "./index.html";
@@ -85,13 +88,24 @@ function displayQuestions() {
   }
 }
 
-var userInitials = highScore.value;
-
 submitInitialsBtn.addEventListener("click", function () {
-  window.location.href = "./highscores.pg.html";
+  userInitials = highScore.value;
   console.log(userInitials);
+  localStorage.setItem("initials", userInitials);
+  localStorage.setItem("userScore", score);
+
+  //var listItem = document.createElement("p");
+  //listItem.textContent = localStorage.getItem("initials") + ":" + " " + localStorage.getItem("userScore");
+  //scoresList.appendChild(listItem);
+
+
 });
 
+function recordHighScores() {}
+
+//submitInitialsBtn.addEventListener("click", function () {
+// window.location.href = "./highscorespg.html";
+//});
 
 //function displayQuestions() {
 // showQuestion(codeQuizQuestions[questionIndex]);

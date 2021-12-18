@@ -69,3 +69,6 @@ button:hover {
   display: none;
 }
 
+#highScoresPage {
+  display: none;
+}
