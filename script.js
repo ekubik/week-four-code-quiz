@@ -6,10 +6,7 @@ var qIndex = 0;
 var lastQuestionIndex = 5;
 var answerChoices = document.getElementById("multiple-choice");
 var options;
-var wrongAnswerChosen = document.getElementById("incorrect-answer");
-var correctAnswerChosen = document.getElementById("correct-answer");
 var hideElement = document.querySelectorAll(".hide");
-
 var clearScore = document.getElementById("clear-score");
 var quizBody = document.getElementById("quiz-body");
 var endScreen = document.getElementById("game-over");
@@ -62,14 +59,10 @@ function displayQuestions() {
 
     choiceButton.addEventListener("click", function (event) {
       if (event.target.textContent === codeQuizQuestions[qIndex].answer) {
-        console.log("correct");
-        correctAnswerChosen.style.display = "block";
-        wrongAnswerChosen.style.display = "none";
+        console.log("correct")
         score = score + 20;
       } else {
-        console.log("wrong");
-        wrongAnswerChosen.style.display = "block";
-        correctAnswerChosen.style.display = "none";
+        console.log("wrong")
         timeLeft = timeLeft - 10;
       }
       qIndex++;
@@ -83,7 +76,7 @@ function displayQuestions() {
       } else {
         displayQuestions();
       }
-    });
+    })
   }
 }
 
@@ -94,55 +87,5 @@ submitInitialsBtn.addEventListener("click", function () {
   console.log(userInitials);
   localStorage.setItem("initials", userInitials);
   localStorage.setItem("userScore", score);
-
-  //var listItem = document.createElement("p");
-  //listItem.textContent = localStorage.getItem("initials") + ":" + " " + localStorage.getItem("userScore");
-  //scoresList.appendChild(listItem);
 });
 
-//var x = {
-  //  name= userInitials,
-    //userScore = score}
-
-
-//submitInitialsBtn.addEventListener("click", function () {
-// window.location.href = "./highscorespg.html";
-//});
-
-//function displayQuestions() {
-// showQuestion(codeQuizQuestions[questionIndex]);
-//}
-
-//function showQuestion() {
-//questionElement.innerText = codeQuizQuestions[questionIndex].question;
-//}
-
-//var yourQuestion = codeQuizQuestions[questionIndex];
-//var questionsText = document.getElementById("question-text");
-//questionsText.textContent = yourQuestion.question;
-
-//for (var i = 0; i < codeQuizQuestions.options.length; i++) {
-// function optionsLoop() {
-//  var choiceButton = document.createElement("button");
-//  choiceButton.textContent = codeQuizQuestions.options[i];
-// answerChoices.append(choiceButton);
-//  }
-// }
-
-/*function optionsLoop() {
-  for (var i = 0; i < codeQuizQuestions[qIndex].options.length; i++) {
-    let buttons = document.createElement("button");
-    buttons.textContent = codeQuizQuestions[qIndex].options[i];
-    answerChoices.append(buttons);
-  }
-}
-optionsLoop();
-
-function correctAnswer() {
-  correctAnswerChosen.style.display = "block";
-}
-
-function wrongAnswer() {
-  wrongAnswerChosen.style.display = "block";
-  timeLeft = timeLeft - 10;
-}*/

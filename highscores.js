@@ -16,9 +16,15 @@ function displayHighScore() {
   var scoresList = document.getElementById("high-scores-list");
   highScore.innerText = user + ": " + score + " points";
   scoresList.appendChild(highScore);
-}
 
-clearScoresBtn.addEventListener("click", function () {
-  localStorage.clear();
-  highScore.innerText = "";
-});
+  clearScoresBtn.addEventListener("click", function () {
+    localStorage.clear();
+    highScore.innerText = "";
+    clearScoresBtn.style.display = "none";
+  });
+
+  if (!user) {
+    highScore.innerText = "  ";
+    clearScoresBtn.style.display = "none";
+  }
+}
