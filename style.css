@@ -68,10 +68,7 @@ button:hover {
   background-color: #8b7bb0;
 }
 
+/* game over screen not displayed until triggered by javascript*/
 #game-over {
-  display: none;
-}
-
-#highScoresPage {
   display: none;
 }
