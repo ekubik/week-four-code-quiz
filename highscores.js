@@ -1,3 +1,5 @@
+//created separate file for highscorespg.html as variables not contained in index.html were causing errors in script.js
+
 var returnStart = document.getElementById("backToStart");
 var clearScoresBtn = document.getElementById("clear-score");
 
